@@ -10,6 +10,20 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('app', {
       url: '/',
-      template: '<app></app>'
+      templateUrl: 'app/home/home.view.html',
+      controller: 'HomeController',
+      controllerAs: 'vm'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: 'app/login/login.view.html',
+      controller: 'LoginController',
+      controllerAs: 'vm'
+    })
+    .state('register', {
+      url: '/register',
+      templateUrl: 'app/register/register.view.html',
+      controller: 'RegisterController',
+      controllerAs: 'vm'
     });
 }

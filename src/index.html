@@ -2,11 +2,16 @@
 <html>
   <head>
     <base href="/">
-    <meta charset="utf-8">
-    <title>FountainJS</title>
+    <meta charset="utf-8" />
+    <title>Simple Device Manager</title>
+    <!--<link href="app-content/app.css" rel="stylesheet" />-->
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" type="image/png" href="http://fountainjs.io/assets/imgs/fountain.png" />
+
+    <!--TODO: inject me instead -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <!--TODO: find an icon -->
+    <!--<link rel="icon" type="image/png" href="http://path/to/my/icon.png" />-->
   
     <!-- build:css({.tmp,src}) styles/vendor.css -->
     <!-- bower:css -->
@@ -23,7 +28,14 @@
 
 
   <body ng-app="app">
-    <ui-view></ui-view>
+    <div class="jumbotron">
+      <div class="container">
+        <div class="col-sm-8 col-sm-offset-2">
+          <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+          <ui-view></ui-view>
+        </div>
+      </div>
+    </div>
   </body>
 
   <!-- build:js({.tmp,src}) scripts/vendor.js -->
