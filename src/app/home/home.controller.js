@@ -5,8 +5,8 @@
     .module('app')
     .controller('HomeController', HomeController);
 
-  HomeController.$inject = ['UserService', 'AuthenticationService', 'DeviceService', '$location', '$rootScope'];
-  function HomeController(UserService, AuthenticationService, DeviceService, $location, $rootScope) {
+  HomeController.$inject = ['UserService', 'AuthenticationService', 'DeviceService', '$location', '$state', '$rootScope'];
+  function HomeController(UserService, AuthenticationService, DeviceService, $location, $state, $rootScope) {
     var vm = this;
 
     vm.user = null;
@@ -14,6 +14,7 @@
     vm.devicesOfCurrentUser = [];
     vm.deleteUser = deleteUser;
     vm.deleteDevice = deleteDevice;
+    vm.editDevice = editDevice;
 
     initController();
 
@@ -63,6 +64,10 @@
         .then(function () {
           loadAllDevicesOfCurrentUser();
         });
+    }
+
+    function editDevice(device) {
+      $state.go("edit-device", {deviceToEdit: device});
     }
 
   }

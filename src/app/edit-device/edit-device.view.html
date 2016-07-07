@@ -1,0 +1,46 @@
+﻿<div class="col-md-6 col-md-offset-3">
+    <h2>Edit Device for {{vm.currentUser.username}}</h2>
+    <form name="form" ng-submit="vm.updateDevice()" role="form">
+        <div class="form-group" ng-class="{ 'has-error': form.deviceName.$dirty && form.deviceName.$error.required }">
+            <label for="deviceName">Name</label>
+            <input type="text" name="deviceName" id="deviceName" class="form-control" ng-model="vm.deviceToEdit.deviceName" required placeholder="Name your Device"/>
+            <span ng-show="form.deviceName.$dirty && form.deviceName.$error.required" class="help-block">Name is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.deviceType.$dirty && form.deviceType.$error.required }">
+            <label for="deviceType">Device Type</label>
+            <select class="form-control" name="deviceType" id="deviceType" ng-model="vm.deviceToEdit.deviceType" required placeholder="Device Type">
+                <option>Tablet</option>
+                <option>Phablet</option>
+                <option>Mobile Phone</option>
+                <option>Wearable</option>
+            </select>
+            <span ng-show="form.deviceType.$dirty && form.deviceType.$error.required" class="help-block">Please select device type</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.brand.$dirty && form.brand.$error.required }">
+            <label for="brand">Brand</label>
+            <select class="form-control" name="brand" id="brand" ng-model="vm.deviceToEdit.brand" required placeholder="Brand">
+                <option>Apple</option>
+                <option>Microsoft</option>
+                <option>Google</option>
+                <option>Samsung</option>
+                <option>HTC</option>
+                <option>LG</option>
+                <option>Motorola</option>
+                <option>Garmin</option>
+                <option>Oculus</option>
+                <option>Oppo</option>
+            </select>
+            <span ng-show="form.brand.$dirty && form.brand.$error.required" class="help-block">Please select a brand</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.price.$dirty && form.price.$error.required }">
+            <label for="price">Price</label>
+            <input type="number" name="price" id="price" class="form-control" ng-model="vm.deviceToEdit.price" required placeholder="Price"/>
+            <span ng-show="form.price.$dirty && form.price.$error.required" class="help-block">Price is required</span>
+        </div>
+        <div class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Save</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a ui-sref="home" class="btn btn-link">Cancel</a>
+        </div>
+    </form>
+</div>

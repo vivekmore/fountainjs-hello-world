@@ -82,7 +82,7 @@
         }
       }
       setDevices(devices);
-      deferred.resolve();
+      deferred.resolve({ success: true, message: "Device successfully updated!" });
 
       return deferred.promise;
     }

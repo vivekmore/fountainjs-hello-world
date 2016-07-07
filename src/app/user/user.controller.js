@@ -19,7 +19,7 @@
       UserService.Update(vm.userToEdit)
         .then(function (response) {
           if (response.success) {
-            FlashService.Success('User successfully added!', true);
+            FlashService.Success('User successfully updated!', true);
             $location.path('/home');
           } else {
             FlashService.Error(response.message);
