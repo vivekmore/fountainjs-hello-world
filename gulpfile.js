@@ -30,10 +30,10 @@ function watch(done) {
     'bower.json'
   ], gulp.parallel('inject'));
 
-  gulp.watch(conf.path.src('app/**/*.html'), reloadBrowserSync);
+  gulp.watch([conf.path.src('app/**/*.html')], gulp.series('inject'), reloadBrowserSync);
   gulp.watch([
     conf.path.src('**/*.css')
   ], gulp.series('styles'));
-  gulp.watch(conf.path.src('**/*.js'), gulp.series('inject'));
+  gulp.watch([conf.path.src('**/*.js')], gulp.series('inject'));
   done();
 }

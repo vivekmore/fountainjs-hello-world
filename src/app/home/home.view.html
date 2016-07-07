@@ -1,11 +1,24 @@
 ﻿<h1>Hi {{vm.user.firstName}}!</h1>
 <p>You're logged in!!</p>
 <h3>All registered users:</h3>
-<ul>
-    <li ng-repeat="user in vm.allUsers">
+<ul class="list-group">
+    <li ng-repeat="user in vm.allUsers"
+        class="list-group-item list-group-item-success">
         {{user.username}} ({{user.firstName}} {{user.lastName}})
-        - <a href="#" ng-click="vm.deleteUser(user.id)">Delete</a>
+        <a href="#" ng-click="vm.deleteUser(user.id)" class="btn btn-danger btn-sm pull-right">Delete</a>
+        <a href="#" ng-click="vm.deleteUser(user.id)" class="btn btn-danger btn-sm pull-right">Delete</a>
+        <a href="#" ng-click="vm.deleteUser(user.id)" class="btn btn-danger btn-sm pull-right">Delete</a>
     </li>
 </ul>
-<p>&nbsp;</p>
-<p><a href="#/login" class="btn btn-primary">Logout</a></p>
+
+<p>Your Devices</p>
+<ol class="list-group">
+    <li ng-repeat="device in vm.devicesOfCurrentUser"
+        class="list-group-item list-group-item-text">
+        {{device.deviceName}}
+    </li>
+</ol>
+
+<p><a ui-sref="device" class="btn btn-info btn-sm">Add New Device</a></p>
+
+<p><a ui-sref="login" class="btn btn-warning">Logout</a></p>
