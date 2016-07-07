@@ -12,7 +12,7 @@
 
     service.GetById = GetById;
     service.GetByUsername = GetByUsername;
-    service.GetByDeviceName = GetByDeviceName;
+    service.GetByUserAndDeviceName = GetByUserAndDeviceName;
     service.Create = Create;
     service.Update = Update;
     service.Delete = Delete;
@@ -35,9 +35,9 @@
       return deferred.promise;
     }
 
-    function GetByDeviceName(deviceName) {
+    function GetByUserAndDeviceName(username, deviceName) {
       var deferred = $q.defer();
-      var filtered = $filter('filter')(getDevices(), {deviceName: deviceName});
+      var filtered = $filter('filter')(getDevices(), {username: username, deviceName: deviceName});
       var device = filtered.length ? filtered[0] : null;
       deferred.resolve(device);
       return deferred.promise;
@@ -48,7 +48,7 @@
 
       // simulate api call with $timeout
       $timeout(function () {
-        GetByDeviceName(device.deviceName)
+        GetByUserAndDeviceName(device.username, device.deviceName)
           .then(function (duplicateDevice) {
             if (duplicateDevice !== null) {
               deferred.resolve({success: false, message: 'Device "' + device.deviceName + '" is already taken'});
