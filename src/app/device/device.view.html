@@ -3,8 +3,39 @@
     <form name="form" ng-submit="vm.addDevice()" role="form">
         <div class="form-group" ng-class="{ 'has-error': form.deviceName.$dirty && form.deviceName.$error.required }">
             <label for="deviceName">Name</label>
-            <input type="text" name="deviceName" id="deviceName" class="form-control" ng-model="vm.device.deviceName" required />
+            <input type="text" name="deviceName" id="deviceName" class="form-control" ng-model="vm.device.deviceName" required placeholder="Name your Device"/>
             <span ng-show="form.deviceName.$dirty && form.deviceName.$error.required" class="help-block">Name is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.deviceType.$dirty && form.deviceType.$error.required }">
+            <label for="deviceType">Device Type</label>
+            <select class="form-control" name="deviceType" id="deviceType" ng-model="vm.device.deviceType" required placeholder="Device Type">
+                <option>Tablet</option>
+                <option>Phablet</option>
+                <option>Mobile Phone</option>
+                <option>Wearable</option>
+            </select>
+            <span ng-show="form.deviceType.$dirty && form.deviceType.$error.required" class="help-block">Please select device type</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.brand.$dirty && form.brand.$error.required }">
+            <label for="brand">Brand</label>
+            <select class="form-control" name="brand" id="brand" ng-model="vm.device.brand" required placeholder="Brand">
+                <option>Apple</option>
+                <option>Microsoft</option>
+                <option>Google</option>
+                <option>Samsung</option>
+                <option>HTC</option>
+                <option>LG</option>
+                <option>Motorola</option>
+                <option>Garmin</option>
+                <option>Oculus</option>
+                <option>Oppo</option>
+            </select>
+            <span ng-show="form.brand.$dirty && form.brand.$error.required" class="help-block">Please select a brand</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.price.$dirty && form.price.$error.required }">
+            <label for="price">Price</label>
+            <input type="number" name="price" id="price" class="form-control" ng-model="vm.device.price" required placeholder="Price"/>
+            <span ng-show="form.price.$dirty && form.price.$error.required" class="help-block">Price is required</span>
         </div>
         <div class="form-actions">
             <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Add</button>

@@ -32,5 +32,14 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'app/device/device.view.html',
       controller: 'DeviceController',
       controllerAs: 'vm'
+    })
+    .state('user', {
+      url: '/user',
+      templateUrl: 'app/user/user.view.html',
+      controller: 'UserController',
+      controllerAs: 'vm',
+      params: {
+        userToEdit: {}
+      }
     });
 }

@@ -80,7 +80,7 @@
                 }
             }
             setUsers(users);
-            deferred.resolve();
+            deferred.resolve({success: true, message: "User was successfully updated!"});
 
             return deferred.promise;
         }

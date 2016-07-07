@@ -13,6 +13,7 @@
     vm.allUsers = [];
     vm.devicesOfCurrentUser = [];
     vm.deleteUser = deleteUser;
+    vm.deleteDevice = deleteDevice;
 
     initController();
 
@@ -56,6 +57,14 @@
           loadAllUsers();
         });
     }
+
+    function deleteDevice(id) {
+      DeviceService.Delete(id)
+        .then(function () {
+          loadAllDevicesOfCurrentUser();
+        });
+    }
+
   }
 
 })();
